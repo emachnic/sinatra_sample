@@ -1,0 +1,15 @@
+!!!
+%html
+  %head
+    %title Badass Sinatra App
+    %link{ rel: 'stylesheet', href: "#{asset_path('application.css')}" }
+    %script{ src: "#{asset_path 'application.js'}" }
+  %body
+    %section#container
+      %nav
+        %ul
+          %li
+            %a{ href: '/' } Home
+          %li
+            %a{ href: 'about' } About
+      = yield

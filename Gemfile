@@ -12,5 +12,5 @@ gem 'haml'
 group :test, :development do
   gem 'guard-sprockets2'
   gem 'rb-fsevent'
-  gem 'growl_notify'
+  gem 'growl'
 end
