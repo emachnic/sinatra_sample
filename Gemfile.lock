@@ -1,4 +1,5 @@
 GEM
+  remote: http://rubygems.org/
   specs:
     kgio (2.6.0)
     rack (1.3.4)
