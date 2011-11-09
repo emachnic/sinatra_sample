@@ -2,14 +2,55 @@
 %html
   %head
     %title Badass Sinatra App
+    %meta{ name: 'viewport', content: 'width=device-width, initial-scale=1' }
+    %link{ rel: 'stylesheet',
+      href: "http://code.jquery.com/mobile/1.0rc2/jquery.mobile-1.0rc2.min.css" }
     %link{ rel: 'stylesheet', href: "#{asset_path('application.css')}" }
     %script{ src: "#{asset_path 'application.js'}" }
+    %script{ src: "http://code.jquery.com/jquery-1.6.4.min.js" }
+    %script{ src: "http://code.jquery.com/mobile/1.0rc2/jquery.mobile-1.0rc2.min.js" }
   %body
-    %section#container
-      %nav
-        %ul
-          %li
-            %a{ href: '/' } Home
-          %li
-            %a{ href: 'about' } About
-      = yield
+    %section#timeline{ data: { role: 'page', title: "#{base_title}Timeline" } }
+      %header{ data: { role: 'header' } }
+        %h1 Timeline
+        %a.ui-btn-right{ href: '#options',
+          data: { transition: 'flip', icon: 'gear' } } Options
+      %section{ data: { role: 'content' } }
+        = haml :index
+      %footer{ data: { id: 'footer', role: 'footer', position: 'fixed' } }
+        = haml :nav
+    %section#mentions{ data: { role: 'page', title: "#{base_title}Mentions" } }
+      %header{ data: { role: 'header' } }
+        %h1 Mentions
+        %a.ui-btn-right{ href: '#options',
+          data: { transition: 'flip', icon: 'gear' } } Options
+      %section{ data: { role: 'content' } }
+        = haml :mentions
+      %footer{ data: { id: 'footer', role: 'footer', position: 'fixed' } }
+        = haml :nav
+    %section#messages{ data: { role: 'page', title: "#{base_title}Messages" } }
+      %header{ data: { role: 'header' } }
+        %h1 Messages
+        %a.ui-btn-right{ href: '#options',
+          data: { transition: 'flip', icon: 'gear' } } Options
+      %section{ data: { role: 'content' } }
+        = haml :messages
+      %footer{ data: { id: 'footer', role: 'footer', position: 'fixed' } }
+        = haml :nav
+    %section#search{ data: { role: 'page', title: "#{base_title}Search" } }
+      %header{ data: { role: 'header' } }
+        %h1 Search
+        %a.ui-btn-right{ href: '#options',
+          data: { transition: 'flip', icon: 'gear' } } Options
+      %section{ data: { role: 'content' } }
+        = haml :search
+      %footer{ data: { id: 'footer', role: 'footer', position: 'fixed' } }
+        = haml :nav
+    %section#options{ data: { role: 'page', title: "#{base_title}Options",
+      "add-back-btn" => "true" } }
+      %header{ data: { role: 'header' } }
+        %h1 Options
+      %section{ data: { role: 'content' } }
+        = haml :options
+      %footer{ data: { id: 'footer', role: 'footer', position: 'fixed' } }
+        = haml :nav

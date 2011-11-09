@@ -7,7 +7,7 @@ module AssetHelpers
   end
 end
 
-class App < Sinatra::Application
+class App < Sinatra::Base
   set :root, File.expand_path('../', __FILE__)
   set :sprockets, Sprockets::Environment.new(root)
   set :precompile, [ /\w+\.(?!js|css).+/, /application.(css|js)$/ ]
@@ -26,6 +26,9 @@ class App < Sinatra::Application
 
   helpers do
     include AssetHelpers
+    def base_title
+      "Twinatra // "
+    end
   end
 
   get '/' do
